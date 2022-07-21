@@ -21,7 +21,7 @@
       <button>create</button>
       <p class="message">Already registered? <a href="#">Sign In</a></p>
     </form>-->
-    <form class="login-form" method="post" action="_login.php">
+    <form class="login-form" method="post" action="backend/_login.php">
       <input type="email" name="email" placeholder="email"/>
       <input type="password" name="password" placeholder="password"/>
       <button type="submit" name="submit">login</button>

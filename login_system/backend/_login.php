@@ -1,7 +1,7 @@
 <?php
 
 //connecting to database via config.php inpartials folder//
-
+session_start();
 include 'config.php';
 
 //if username exists//
@@ -31,8 +31,8 @@ if(mysqli_num_rows($result)==1)
 
     if($data[7]==$email && $data[1]==$pass)
     {
-        echo "Password";
-        header("Location:dashboard.php");
+        $_SESSION['email']=$email;
+        header("Location:../../main_framework/user_dashboard.php");
         $isvalid=true;
     }
 }

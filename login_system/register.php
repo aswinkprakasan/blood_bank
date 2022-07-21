@@ -1,35 +1,4 @@
-<?php
 
-include ('config.php');
-if(isset($_POST['submit']))
-   {
-   $name=$_POST['username'];
-   $pswd=$_POST['password'];
-   
-
-   $dob=$_POST['dob'];
-   $sex=$_POST['sex'];
-   $bloodgroup=$_POST['bloodgroup'];
-   $weight=$_POST['weight'];
-   $address=$_POST['address'];
-   $email=$_POST['email'];
-   $phonenumber=$_POST['phonenumber'];
-   
-
-$sql = "INSERT INTO donor_table (username,password,dob,sex,bloodgroup,weight,address,email,phonenumber)
-VALUES ('$name','$pswd','$dob','$sex','$bloodgroup','$weight','$address','$email','$phonenumber')";
-
-if ($conn->query($sql) === TRUE) {
-  header("Location:login.php");
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
-  
-}
-  
-  ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -52,11 +21,13 @@ $conn->close();
         </svg>
         </p>
         <br><br>
-    <form method="post" >
+    <form method="post" action="backend/_register.php" >
       <div class="col">
         <div class="col">
           <!-- username -->
-          <input type="text" name="username" class="form-control" placeholder="User name">
+        <input type="text" name="firstname" class="form-control" placeholder="First name">
+        </div><br>
+        <input type="text" name="lastname" class="form-control" placeholder="Last name">
         </div><br>
       <div class="col">
         <!-- password -->

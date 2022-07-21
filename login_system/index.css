@@ -50,6 +50,10 @@ body {
     cursor: pointer;
     text-decoration: none;
 }
+.noDecoration, a:link, a:visited {
+    text-decoration: none;
+}
+
 /*.landing-page .header-area .links li:link {
     border: 0;
     border-radius: 20px;
