@@ -1,40 +1,35 @@
 <?php
-
-//connecting to database via config.php inpartials folder//
 session_start();
-include 'config.php';
+include ('config.php');
 
-//if username exists//
-
-$ifexists=true;
-
-//fetching details//
-
-$email=$_POST["email"];
-$pass=$_POST["password"];
-
-
-//checking is username exists//
-
-$emailexists=false;
-$isvalid=false;
-
-$checkemail="SELECT * FROM donor_table WHERE email='$email'";
-$result=mysqli_query($conn,$checkemail);
-if(mysqli_num_rows($result)==1)
+if($_SERVER['REQUEST_METHOD'] == 'POST')
 {
-   
-    $emailexists=true;
-    $data=mysqli_fetch_row($result);
+    $email=$_POST["email"];
+    $pass=$_POST["password"];
 
-    //checking if credentials are valid//
 
-    if($data[7]==$email && $data[1]==$pass)
+    $sql="SELECT * FROM donor_table WHERE email='$email' AND password='$pass'";
+    $result=mysqli_query($conn,$sql);
+    $row=mysqli_fetch_array($result);
+
+    if($row["userrole"]=="user")
     {
-        $_SESSION['email']=$email;
+        $_SESSION["mail"]=$email;
         header("Location:../../main_framework/user_dashboard.php");
-        $isvalid=true;
+    }
+
+    elseif($row["userrole"]=="admin")
+    {
+        $_SESSION["mail"]=$email;
+        header("Location:../../main_framework/admin_dashboard.php");
+    }
+
+    else
+    {
+        echo "Email and password are incorrect";
     }
 }
+
+
 
 ?>

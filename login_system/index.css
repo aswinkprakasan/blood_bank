@@ -50,33 +50,15 @@ body {
     cursor: pointer;
     text-decoration: none;
 }
-.noDecoration, a:link, a:visited {
+
+.noDecoration,
+a:link,
+a:visited {
     text-decoration: none;
+
 }
 
-/*.landing-page .header-area .links li:link {
-    border: 0;
-    border-radius: 20px;
-    padding: 10px 18px;
-    color: #FFF;
-    background-color: #ff0000;
-    text-decoration:none;
-}
-.landing-page .header-area .links li:visited {
-    border: 0;
-    border-radius: 20px;
-    padding: 10px 18px;
-    color: #FFF;
-    background-color: #ff0000;
-    text-decoration:none;
-}
 
-.landing-page .header-area .links li:hover{
-  background-color: red;
-}
-.landing-page .header-area .links li:active {
-    background-color: red;
-  }*/
 
 .landing-page .header-area .links li:last-child {
     border: 0;
@@ -84,20 +66,9 @@ body {
     padding: 10px 18px;
     color: #FFF;
     background-color: #ff0000;
-   
-}
-/*.landing-page .header-area .links li:last-child:link, .landing-page .header-area .links li:last-child:visited {
-    border: 0;
-    border-radius: 20px;
-    padding: 10px 18px;
-    color: #FFF;
-    background-color: #ff0000;
-    text-decoration:none;
+
 }
 
-.landing-page .header-area .links li:last-child:hover, .landing-page .header-area .links li:last-child:active {
-  background-color: red;
-}*/
 
 .landing-page .info {
     width: 35%;
@@ -140,7 +111,7 @@ body {
 }
 
 .clearfix {
-  clear: both;
+    clear: both;
 }
 
 /* End Landing Page */

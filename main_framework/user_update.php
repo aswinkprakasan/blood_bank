@@ -1,88 +1,23 @@
 <?php
 session_start();
+$mail=$_SESSION['mail'];
 if(!isset($_SESSION["mail"]))
 {
     header("Location:../login_system/login.php");
 }
 include 'config.php';
-$mail=$_SESSION['mail'];
+if($_SERVER['REQUEST_METHOD'] == 'POST')
+   {
+    $value=$_POST["value"];
+    $type=$_POST['type'];
+    $sql="UPDATE `donor_table` SET `$type`='$value' WHERE email='$mail'";
+    $result=mysqli_query($conn,$sql);   
+   }
 $sql="SELECT * FROM `donor_table` WHERE email='$mail'";
 $result=mysqli_query($conn,$sql);
 $data=mysqli_fetch_row($result);
+
 ?>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>User dashboard</title>
-  <link rel="stylesheet" href="user_dashboard.css">
-   
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<html>
-  <head>
- 
-  </head>
-  <div class="container"> <h1>Hello 
-        <?php 
-    echo $data[1];?></h1></div>
-  <body><div class="area"></div><nav class="main-menu">
-            <ul>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-text">
-                            Dashboard
-                        </span>
-                    </a>
-                  
-                </li>
-                <li class="has-subnav">
-                    <a href="user_update.php">
-                        <i class="fa fa-laptop fa-2x"></i>
-                        <span class="nav-text">
-                            Edit/Update Details
-                        </span>
-                    </a>
-                    
-                
-                <li class="has-subnav">
-                    <a href="last_donation.php">
-                       <i class="fa fa-folder-open fa-2x"></i>
-                        <span class="nav-text">
-                            Last donation date
-                        </span>
-                    </a>
-                   
-                </li>
-               
-                <li>
-                    <a href="#">
-                       <i class="fa fa-info fa-2x"></i>
-                        <span class="nav-text">
-                            Help desk
-                        </span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul class="logout">
-                <li>
-                   <a href="../login_system/backend/_logout.php">
-                         <i class="fa fa-power-off fa-2x"></i>
-                        <span class="nav-text">
-                            Logout
-                        </span>
-                    </a>
-                </li>  
-            </ul>
-        </nav>
-  </body>
 </html>
 <!-- partial -->
 <!doctype html>
@@ -98,7 +33,11 @@ $data=mysqli_fetch_row($result);
 
   </head>
   <body>
-    
+
+  <nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="user_dashboard.php">Home</a>
+
+</nav>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -111,16 +50,34 @@ $data=mysqli_fetch_row($result);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     -->
     <div class="container">
+    <h3>Donor Details</h3>
+    <br>
     <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr class="table-info"><th scope="row">Name</th><td><?php echo$data[1]?></td></tr>
                 <tr class="table-info"><th scope="row">DOB</th><td><?php echo$data[4]?></td></tr>
                 <tr class="table-info"><th scope="row">Age</th><td><?php echo$data[5]?></td></tr>
                 <tr class="table-info"><th scope="row">Sex</th><td><?php echo$data[6]?></td></tr>
-                <tr class="table-info"><th scope="row">Blood Group</th><td><?php echo$data[7]?></td></tr>
+                <tr class="table-info"><th scope="row">BloodGroup</th><td><?php echo$data[7]?></td></tr>
                 <tr class="table-info"><th scope="row">Weight</th><td><?php echo$data[8]?></td></tr>
                 <tr class="table-info"><th scope="row">Address</th><td><?php echo$data[9]?></td></tr>
                 <tr class="table-info"><th scope="row">City</th><td><?php echo$data[10]?></td></tr>
                 <tr class="table-info"><th scope="row">Phone number</th><td><?php echo$data[11]?></td></tr>
+</thead>
+</table></div>
+<div class="container">
+<h3>Editing form</h3>
+<form action="user_update.php" method="post">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Enter Type Of The Detail:</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="type" aria-describedby="emailHelp">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Enter The New Value:</label>
+    <input type="text" class="form-control" id="exampleInputEmail1" name="value" aaria-describedby="emailHelp">
+  </div>
+
+  <button type="submit"  name='submit' class="btn btn-primary">Submit</button>
+</form>
 </body>
 </html>

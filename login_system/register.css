@@ -1,35 +1,14 @@
-.indent-small {
-    margin-left: 5px;
+li{ 
+  border: 0;
+      border-radius: 20px;
+      padding: 10px 18px;
+      background-color: #ff0000;
+      display: inline-block;
+      margin-left: 30px;
+      color: #5d5d5d;
+      cursor: pointer;
+      text-decoration: none;
   }
-  .form-group.internal {
-    margin-bottom: 0;
-  }
-  .dialog-panel {
-    margin: 10px;
-  }
-  .datepicker-dropdown {
-    z-index: 200 !important;
-  }
-  .panel-body {
-    background: #e5e5e5;
-    /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-    /* FF3.6+ */
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #e5e5e5), color-stop(100%, #ffffff));
-    /* Chrome,Safari4+ */
-    background: -webkit-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-    /* Chrome10+,Safari5.1+ */
-    background: -o-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-    /* Opera 12+ */
-    background: -ms-radial-gradient(center, ellipse cover, #e5e5e5 0%, #ffffff 100%);
-    /* IE10+ */
-    background: radial-gradient(ellipse at center, #e5e5e5 0%, #ffffff 100%);
-    /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5e5e5', endColorstr='#ffffff', GradientType=1);
-    /* IE6-9 fallback on horizontal gradient */
-    font: 600 15px "Open Sans", Arial, sans-serif;
-  }
-  label.control-label {
-    font-weight: 600;
-    color: #777;
-  }
+  /*body{
+    background-image: url("https://repository-images.githubusercontent.com/355386280/84e794f4-743a-42c6-932f-aeee6977481c");
+  }*/
