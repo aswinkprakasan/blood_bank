@@ -114,6 +114,7 @@ $data=mysqli_fetch_row($result);
     <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr class="table-info"><th scope="row">Name</th><td><?php echo$data[1]?></td></tr>
+                <tr class="table-info"><th scope="row">Email</th><td><?php echo$data[0]?></td></tr>
                 <tr class="table-info"><th scope="row">DOB</th><td><?php echo$data[4]?></td></tr>
                 <tr class="table-info"><th scope="row">Age</th><td><?php echo$data[5]?></td></tr>
                 <tr class="table-info"><th scope="row">Sex</th><td><?php echo$data[6]?></td></tr>
