@@ -17,6 +17,18 @@ $sql="SELECT * FROM `donor_table` WHERE email='$mail'";
 $result=mysqli_query($conn,$sql);
 $data=mysqli_fetch_row($result);
 
+if($result)
+    {
+        echo '<script type="text/javascript"> alert("Registered successfully") </script>';
+        echo"<div class='alert alert-primary' role='alert'>
+    Go to login page <a href='user_dashboard.php'>  click here</a>
+  </div>";
+    }
+    else
+    {
+        echo '<script type="text/javascript"> alert("Data not updated") </script>';
+    }
+
 ?>
 </html>
 <!-- partial -->
