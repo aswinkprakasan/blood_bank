@@ -4,7 +4,7 @@ include ('config.php');
 
    $name=$_POST['username'];
    $pswd=$_POST['password'];
-   echo$name;
+   
 
    $dob=$_POST['dob'];
    $sex=$_POST['sex'];
