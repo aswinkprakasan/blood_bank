@@ -35,12 +35,12 @@ if(isset($_POST['search']))
     }
     else
     {
-        $query = "SELECT * FROM donor_table where bloodgroup='$bloodgroup'  "; 
+        $query = "SELECT * FROM donor_table where bloodgroup='$bloodgroup' "; 
     }
-  }
-               
-                
+  }             
   $result= mysqli_query($conn, $query);
+  
+  
 
   if(mysqli_num_rows($result) > 0)
   {
@@ -58,6 +58,7 @@ if(isset($_POST['search']))
             </tr>";
       }
   }
+
   else
   {
     echo"<tr>

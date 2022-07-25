@@ -1,3 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+
+
+
 <?php
 
 include ('config.php');
@@ -27,12 +41,18 @@ $data=mysqli_fetch_row($result);
 $sql="UPDATE `donor_table` SET `age` = '$data[0]' WHERE `donor_table`.`email` = '$email'";
 $result=mysqli_query($conn,$sql);
 
-if ($conn->query($sql) === TRUE) {
-  header("Location:../login.php");
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
 
+if($result)
+    {
+        echo '<script type="text/javascript"> alert("Registered successfully") </script>';
+        echo"<div class='alert alert-primary' role='alert'>
+    Go to login page <a href='../login.php'>  click here</a>
+  </div>";
+    }
+    else
+    {
+        echo '<script type="text/javascript"> alert("Data not updated") </script>';
+    }
 $conn->close();
 
   
