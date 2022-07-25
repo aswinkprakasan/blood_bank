@@ -15,7 +15,7 @@ echo'<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 <div class="alert alert-primary d-flex align-items-center" role="alert">
 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Info:"><use xlink:href="#info-fill"/></svg>
 <div>
-  Make sure to not leave the bloodgroup selection empty
+    Make sure to not leave the bloodgroup selection empty
 </div>';
 include('../login_system/backend/config.php');
 
