@@ -44,6 +44,9 @@ $result=mysqli_query($conn,$sql);
 if($result)
     {
         echo '<script type="text/javascript"> alert("Last donation date updated") </script>';
+        echo"<div class='alert alert-primary' role='alert'>
+    Go to login page <a href='../last_donation.php'>  click here</a>
+  </div>";
        
     }
     else

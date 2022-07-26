@@ -51,7 +51,7 @@ if($result)
     }
     else
     {
-        echo '<script type="text/javascript"> alert("Data not updated") </script>';
+        echo '<script type="text/javascript"> alert("Same email exists") </script>';
     }
 $conn->close();
 
