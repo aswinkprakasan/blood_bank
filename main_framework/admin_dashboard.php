@@ -44,7 +44,7 @@ $data=mysqli_fetch_row($result);
 
                 </li>
                 <li class="has-subnav">
-                    <a href="admin_user_update2.php">
+                    <a href="admin_user_update1.php">
                         <i class="fa fa-laptop fa-2x"></i>
                         <span class="nav-text">
                             Edit/Update User
@@ -62,11 +62,12 @@ $data=mysqli_fetch_row($result);
 
                 </li>
 
+
                 <li>
-                    <a href="#">
+                    <a href="admin_delete_user.php">
                         <i class="fa fa-info fa-2x"></i>
                         <span class="nav-text">
-                            Maintanence
+                            Delete User
                         </span>
                     </a>
                 </li>
