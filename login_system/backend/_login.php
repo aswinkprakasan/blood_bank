@@ -23,12 +23,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
         $_SESSION["mail"]=$email;
         header("Location:../../main_framework/admin_dashboard.php");
     }
-
     else
     {
-        echo "Email and password are incorrect";
+        echo '<script type="text/javascript"> alert("Incorrect Creditionals!!") </script>';
     }
+    
 }
+
 
 
 
