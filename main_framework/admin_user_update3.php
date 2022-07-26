@@ -1,33 +1,26 @@
 <?php
+include "config.php";
 session_start();
-$mail=$_SESSION['mail'];
-if(!isset($_SESSION["mail"]))
-{
-    header("Location:../login_system/login.php");
-}
-include 'config.php';
+$mail=$_SESSION['newemail'];
 if($_SERVER['REQUEST_METHOD'] == 'POST')
    {
     $value=$_POST["value"];
     $type=$_POST['type'];
     $sql="UPDATE `donor_table` SET `$type`='$value' WHERE email='$mail'";
-    $result=mysqli_query($conn,$sql);   
+    $result=mysqli_query($conn,$sql); 
+    
    }
-$sql="SELECT * FROM `donor_table` WHERE email='$mail'";
+$email=$_SESSION['newemail'] ;
+
+if(!isset($_SESSION["mail"]))
+{
+    header("Location:../login_system/login.php");
+}
+include 'config.php';
+$sql="SELECT * FROM `donor_table` WHERE email='$email'";
 $result=mysqli_query($conn,$sql);
 $data=mysqli_fetch_row($result);
 
-if($result)
-    {
-        echo '<script type="text/javascript"> alert("Registered successfully") </script>';
-        echo"<div class='alert alert-primary' role='alert'>
-    Go to login page <a href='user_dashboard.php'>  click here</a>
-  </div>";
-    }
-    else
-    {
-        echo '<script type="text/javascript"> alert("Data not updated") </script>';
-    }
 
 ?>
 </html>
@@ -47,7 +40,7 @@ if($result)
   <body>
 
   <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="user_dashboard.php">Home</a>
+  <a class="navbar-brand" href="admin_dashboard.php">Home</a>
 
 </nav>
 
@@ -80,7 +73,7 @@ if($result)
 </table></div>
 <div class="container">
 <h3>Editing form</h3>
-<form action="user_update.php" method="post">
+<form action="admin_user_update3.php" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Enter Type Of The Detail:</label>
     <input type="text" class="form-control" id="exampleInputEmail1" name="type" aria-describedby="emailHelp">

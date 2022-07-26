@@ -1,23 +1,19 @@
 <?php
 session_start();
 $mail=$_SESSION['mail'];
+
+$email=$_POST['email'];
+$_SESSION['newemail'] = $email;
+
 if(!isset($_SESSION["mail"]))
 {
     header("Location:../login_system/login.php");
 }
 include 'config.php';
-
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-   {
-    $email=$_POST["email"];
-    $value=$_POST["value"];
-    $type=$_POST['type'];
-    $sql="UPDATE `donor_table` SET `$type`='$value' WHERE email='$mail'";
-    $result=mysqli_query($conn,$sql);   
-   }
-$sql="SELECT * FROM `donor_table` WHERE email='$mail'";
+$sql="SELECT * FROM `donor_table` WHERE email='$email'";
 $result=mysqli_query($conn,$sql);
 $data=mysqli_fetch_row($result);
+
 
 ?>
 </html>
@@ -57,6 +53,7 @@ $data=mysqli_fetch_row($result);
     <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr class="table-info"><th scope="row">Name</th><td><?php echo$data[1]?></td></tr>
+                <tr class="table-info"><th scope="row">Email</th><td><?php echo$data[0]?></td></tr>
                 <tr class="table-info"><th scope="row">DOB</th><td><?php echo$data[4]?></td></tr>
                 <tr class="table-info"><th scope="row">Age</th><td><?php echo$data[5]?></td></tr>
                 <tr class="table-info"><th scope="row">Sex</th><td><?php echo$data[6]?></td></tr>
@@ -69,11 +66,7 @@ $data=mysqli_fetch_row($result);
 </table></div>
 <div class="container">
 <h3>Editing form</h3>
-<form action="admin_user_update2.php" method="post">
-<div class="form-group">
-    <label for="exampleInputEmail1">Enter the email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
-  </div>
+<form action="admin_user_update3.php" method="post">
   <div class="form-group">
     <label for="exampleInputEmail1">Enter Type Of The Detail:</label>
     <input type="text" class="form-control" id="exampleInputEmail1" name="type" aria-describedby="emailHelp">
