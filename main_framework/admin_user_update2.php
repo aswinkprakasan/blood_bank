@@ -34,6 +34,8 @@ $data=mysqli_fetch_row($result);
 
   <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="admin_dashboard.php">Home</a>
+  <a class="navbar-brand" href="admin_user_update1.php">Back</a>
+
 
 </nav>
 

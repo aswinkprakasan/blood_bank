@@ -65,7 +65,7 @@ $data=mysqli_fetch_row($result);
                     <a href="#">
                        <i class="fa fa-info fa-2x"></i>
                         <span class="nav-text">
-                            Help desk
+                            Contact Us
                         </span>
                     </a>
                 </li>

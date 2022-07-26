@@ -19,7 +19,7 @@ $data=mysqli_fetch_row($result);
     <meta charset="UTF-8">
     <title>Admin dashboard</title>
     <link rel="stylesheet" href="user_dashboard.css">
-    <h1>Hello <?php echo $data[1];?></h1>
+    <h1>Hello <?php echo $data[1];?> You are now an ADMIN..</h1>
 </head>
 
 <body>

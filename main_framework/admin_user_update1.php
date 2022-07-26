@@ -24,7 +24,15 @@ $data=mysqli_fetch_all($result);
 
   </head>
   <body>
-    
+
+  <nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="admin_dashboard.php">Home</a>
+
+</nav>
+    <div class="container">
+    <h1>Update user details</h1>
+    <h5>Go down</h5>
+</div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 

@@ -33,13 +33,18 @@ $result=mysqli_query($conn,$sql);
 $sql = "UPDATE `last_donation_table` SET `last_don_date` = '$last_don' WHERE `last_donation_table`.`email` = '$email'";
 $result=mysqli_query($conn,$sql); 
 
+$sql1="SELECT DATEDIFF(now(),`last_don_date`) AS dated FROM last_donation_table WHERE email='$email'";
+$result=mysqli_query($conn,$sql1);
+$data=mysqli_fetch_row($result);
+
+
+$sql="UPDATE `last_donation_table` SET `days` = '$data[0]' WHERE `last_donation_table`.`email` = '$email'";
+$result=mysqli_query($conn,$sql);
 
 if($result)
     {
-        echo '<script type="text/javascript"> alert("Data updated") </script>';
-        echo"<div class='alert alert-primary' role='alert'>
-    Go to updation page <a href='../last_donation.php'>  click here</a>
-  </div>";
+        echo '<script type="text/javascript"> alert("Last donation date updated") </script>';
+       
     }
     else
     {

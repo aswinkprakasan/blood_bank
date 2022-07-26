@@ -21,6 +21,15 @@ $sql="SELECT * FROM `donor_table` WHERE email='$email'";
 $result=mysqli_query($conn,$sql);
 $data=mysqli_fetch_row($result);
 
+if($result)
+    {
+        echo '<script type="text/javascript"> alert("User data updated successfully") </script>';
+        
+    }
+    else
+    {
+        echo '<script type="text/javascript"> alert("Data not updated") </script>';
+    }
 
 ?>
 </html>
@@ -41,6 +50,7 @@ $data=mysqli_fetch_row($result);
 
   <nav class="navbar navbar-dark bg-dark">
   <a class="navbar-brand" href="admin_dashboard.php">Home</a>
+  
 
 </nav>
 

@@ -11,23 +11,23 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $value=$_POST["value"];
     $type=$_POST['type'];
     $sql="UPDATE `donor_table` SET `$type`='$value' WHERE email='$mail'";
-    $result=mysqli_query($conn,$sql);   
-   }
-$sql="SELECT * FROM `donor_table` WHERE email='$mail'";
-$result=mysqli_query($conn,$sql);
-$data=mysqli_fetch_row($result);
-
-if($result)
+    $result=mysqli_query($conn,$sql);  
+    
+    if($result)
     {
-        echo '<script type="text/javascript"> alert("Registered successfully") </script>';
-        echo"<div class='alert alert-primary' role='alert'>
-    Go to login page <a href='user_dashboard.php'>  click here</a>
-  </div>";
+        echo '<script type="text/javascript"> alert("Updated successfully") </script>';
+       
     }
     else
     {
         echo '<script type="text/javascript"> alert("Data not updated") </script>';
     }
+   }
+$sql="SELECT * FROM `donor_table` WHERE email='$mail'";
+$result=mysqli_query($conn,$sql);
+$data=mysqli_fetch_row($result);
+
+
 
 ?>
 </html>
@@ -76,6 +76,7 @@ if($result)
                 <tr class="table-info"><th scope="row">Address</th><td><?php echo$data[9]?></td></tr>
                 <tr class="table-info"><th scope="row">City</th><td><?php echo$data[10]?></td></tr>
                 <tr class="table-info"><th scope="row">Phone number</th><td><?php echo$data[11]?></td></tr>
+                <tr class="table-info"><th scope="row">Password</th><td><?php echo$data[3]?></td></tr>
 </thead>
 </table></div>
 <div class="container">
