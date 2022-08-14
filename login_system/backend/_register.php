@@ -16,45 +16,65 @@
 
 include ('config.php');
 
-   $name=$_POST['username'];
-   $pswd=$_POST['password'];
-   
+if(isset($_POST['submit'])) {
 
-   $dob=$_POST['dob'];
-   $sex=$_POST['sex'];
-   $bloodgroup=$_POST['bloodgroup'];
-   $weight=$_POST['weight'];
-   $address=$_POST['address'];
-   $city=$_POST['city'];
-   $email=$_POST['email'];
-   $phonenumber=$_POST['phonenumber'];
-  
-$sql="INSERT INTO `donor_table`(`username`, `password`, `dob`, `age`, `sex`, `bloodgroup`, `weight`, `address`, `city`, `email`, `phonenumber`) 
-VALUES ('$name','$pswd','$dob','0','$sex','$bloodgroup','$weight','$address','$city','$email','$phonenumber')";
-$result=mysqli_query($conn,$sql);
-
-$sql1="SELECT DATE_FORMAT(FROM_DAYS(DATEDIFF(now(),dob)), '%Y')+0 AS Age from donor_table where username='$name'";
-$result=mysqli_query($conn,$sql1);
-
-$data=mysqli_fetch_row($result);
-
-$sql="UPDATE `donor_table` SET `age` = '$data[0]' WHERE `donor_table`.`email` = '$email'";
-$result=mysqli_query($conn,$sql);
+   $name=mysqli_real_escape_string($conn, $_POST['username']);
+   $pswd=mysqli_real_escape_string($conn, $_POST['password']);
+   $cpswd=mysqli_real_escape_string($conn, $_POST['cpassword']);
+   $dob=mysqli_real_escape_string($conn, $_POST['dob']);
+   $sex=mysqli_real_escape_string($conn, $_POST['sex']);
+   $bloodgroup=mysqli_real_escape_string($conn, $_POST['bloodgroup']);
+   $weight=mysqli_real_escape_string($conn, $_POST['weight']);
+   $address=mysqli_real_escape_string($conn, $_POST['address']);
+   $city=mysqli_real_escape_string($conn, $_POST['city']);
+   $email=mysqli_real_escape_string($conn, $_POST['email']);
+   $phonenumber=mysqli_real_escape_string($conn, $_POST['phonenumber']);
 
 
-if($result)
+   $emailcheck="SELECT * FROM donor_table WHERE email = '$email'";
+   $query=mysqli_query($conn,$emailcheck);
+   $emailcount=mysqli_num_rows($query);
+   if ($emailcount>0) 
+   {
+    echo '<script> alert("Email already exists") </script>';
+   }
+
+   else
+   {
+    if($pswd===$cpswd)
     {
-        echo '<script type="text/javascript"> alert("Registered successfully") </script>';
+      $sql="INSERT INTO `donor_table`(`username`, `password`, `dob`, `age`, `sex`, `bloodgroup`, `weight`, `address`, `city`, `email`, `phonenumber`) 
+      VALUES ('$name','$pswd','$dob','0','$sex','$bloodgroup','$weight','$address','$city','$email','$phonenumber')";
+      $result=mysqli_query($conn,$sql);
+
+      $sql1="SELECT DATE_FORMAT(FROM_DAYS(DATEDIFF(now(),dob)), '%Y')+0 AS Age from donor_table where username='$name'";
+      $result=mysqli_query($conn,$sql1);
+      $data=mysqli_fetch_row($result);
+
+      $sql="UPDATE `donor_table` SET `age` = '$data[0]' WHERE `donor_table`.`email` = '$email'";
+      $result=mysqli_query($conn,$sql);
+
+      if($result)
+    {
+        echo '<script> alert("Registered successfully") </script>';
         echo"<div class='alert alert-primary' role='alert'>
     Go to login page <a href='../login.php'>  click here</a>
   </div>";
     }
     else
     {
-        echo '<script type="text/javascript"> alert("Same email exists") </script>';
+        echo '<script> alert("Not Registered") </script>';
     }
-$conn->close();
 
+
+    }
+    else
+    {
+      echo '<script> alert("Password not matching") </script>';
+    }
+   }
   
+}
+$conn->close();
 
 ?>

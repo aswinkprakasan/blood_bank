@@ -5,93 +5,114 @@ if(!isset($_SESSION["mail"]))
 {
     header("Location:../login_system/login.php");
 }
-include 'config.php';
-if($_SERVER['REQUEST_METHOD'] == 'POST')
-   {
-    $value=$_POST["value"];
-    $type=$_POST['type'];
-    $sql="UPDATE `donor_table` SET `$type`='$value' WHERE email='$mail'";
-    $result=mysqli_query($conn,$sql);  
-    
-    if($result)
-    {
-        echo '<script type="text/javascript"> alert("Updated successfully") </script>';
-       
-    }
-    else
-    {
-        echo '<script type="text/javascript"> alert("Data not updated") </script>';
-    }
-   }
-$sql="SELECT * FROM `donor_table` WHERE email='$mail'";
-$result=mysqli_query($conn,$sql);
-$data=mysqli_fetch_row($result);
-
-
-
 ?>
-</html>
-<!-- partial -->
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+  <title>EDIT USER</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="user_dashboard.php">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"style="width:30px;"alt="BACK">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M12.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0019 16V8a1 1 0 00-1.6-.8l-5.333 4zM4.066 11.2a1 1 0 000 1.6l5.334 4A1 1 0 0011 16V8a1 1 0 00-1.6-.8l-5.334 4z" />
+        </svg>
+    </a>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
-  </head>
-  <body>
-
-  <nav class="navbar navbar-dark bg-dark">
-  <a class="navbar-brand" href="user_dashboard.php">Home</a>
-
+    <h3 class="container-fluid  text-white" style="text-align: center">UPDATE USER</h3>
+    
+  </div>
 </nav>
+    <?php
+        include 'config.php';
 
-    <!-- Optional JavaScript; choose one of the two! -->
+        $sql="SELECT * FROM donor_table WHERE email='$mail'";
+        $result=mysqli_query($conn,$sql);
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        if($result)
+        {
+            while($data=mysqli_fetch_array($result))
+            {
+                ?>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
-    <div class="container">
-    <h3>Donor Details</h3>
-    <br>
-    <table class="table table-striped table-bordered">
-            <thead class="thead-dark">
-                <tr class="table-info"><th scope="row">Name</th><td><?php echo$data[1]?></td></tr>
-                <tr class="table-info"><th scope="row">Email</th><td><?php echo$data[0]?></td></tr>
-                <tr class="table-info"><th scope="row">DOB</th><td><?php echo$data[4]?></td></tr>
-                <tr class="table-info"><th scope="row">Age</th><td><?php echo$data[5]?></td></tr>
-                <tr class="table-info"><th scope="row">Sex</th><td><?php echo$data[6]?></td></tr>
-                <tr class="table-info"><th scope="row">BloodGroup</th><td><?php echo$data[7]?></td></tr>
-                <tr class="table-info"><th scope="row">Weight</th><td><?php echo$data[8]?></td></tr>
-                <tr class="table-info"><th scope="row">Address</th><td><?php echo$data[9]?></td></tr>
-                <tr class="table-info"><th scope="row">City</th><td><?php echo$data[10]?></td></tr>
-                <tr class="table-info"><th scope="row">Phone number</th><td><?php echo$data[11]?></td></tr>
-                <tr class="table-info"><th scope="row">Password</th><td><?php echo$data[3]?></td></tr>
-</thead>
-</table></div>
-<div class="container">
-<h3>Editing form</h3>
-<form action="user_update.php" method="post">
-  <div class="form-group">
-    <label for="exampleInputEmail1">Enter Type Of The Detail:</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="type" aria-describedby="emailHelp">
-  </div>
-  <div class="form-group">
-    <label for="exampleInputEmail1">Enter The New Value:</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="value" aaria-describedby="emailHelp">
-  </div>
+            <div class= "container">
+            <div class= "jumbotron" style="margin-top:100px;margin-left:20%;margin-right:20%;margin-bottom:20px;">
 
-  <button type="submit"  name='submit' class="btn btn-primary">Submit</button>
+            <form action="backend/_user_update.php" method="post">
+                <input type="hidden" name="hide" value="<?php echo $data['email'] ?>">
+                <div class="form-group">
+                    <input type="text" name="username" value="<?php echo $data['username'] ?>" class="form-control" placeholder="User name">
+                </div><br>
+                
+                <div class="form-group">
+                    <input type="date" id="dob" name="dob" value="<?php echo $data['dob'] ?>" class="form-control">
+                </div><br>
+                <div class="form-group">
+                    <select name="sex"  class="custom-select custom-select-sm form-control">
+                        <option selected value="<?php echo $data['sex'] ?>"><?php echo $data['sex'] ?></option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="LGBTQ">LGBTQ</option>
+                    </select>
+                </div><br>
+                <div class="form-group">
+
+                    <select name="bloodgroup"  class="custom-select custom-select-sm form-control">
+                        <option selected value="<?php echo $data['bloodgroup'] ?>"><?php echo $data['bloodgroup'] ?></option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>
+                </div><br>
+                <div class="form-group">
+
+                    <input type="text" name="weight" value="<?php echo $data['weight'] ?>" class="form-control" placeholder="Weight">
+                </div><br>
+                <div class="form-group">
+
+                    <textarea name="address" rows="3" cols="90" class="form-control" placeholder="Address"><?php echo $data['address'] ?></textarea>
+                </div><br>
+                <div class="form-group">
+
+                    <input type="text" name="city" value="<?php echo $data['city'] ?>" class="form-control" placeholder="City">
+                </div><br>
+                <div class="form-group">
+                    <input type="email" name="email" value="<?php echo $data['email'] ?>" class="form-control" placeholder="Email" disabled>
+                </div><br>
+                <div class="form-group">
+                    <input type="text" name="phonenumber" value="<?php echo $data['phonenumber'] ?>" class="form-control" pattern="[6-9]\d{9}" title="enter a valid phno" placeholder="Mobile number">
+                </div><br>
+            <div class="form-group">
+                <button type="submit" name="update" class="btn btn-primary ">UPDATE</button>
+                <a href="user_dashboard.php" class="btn btn-danger">CANCEL</a>
+            </div>
+
 </form>
+   
+</div>
+</div>
+
+                <?php
+            }
+        }
+        else
+        {
+            echo '<script>alert("no record found");</script>';
+        }
+
+    ?>
+
 </body>
 </html>
