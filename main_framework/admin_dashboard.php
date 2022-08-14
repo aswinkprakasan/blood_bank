@@ -14,117 +14,42 @@ $data=mysqli_fetch_row($result);
 
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Admin dashboard</title>
-    <link rel="stylesheet" href="user_dashboard.css">
-    <h1>Hello <?php echo $data[1];?> You are now an ADMIN..</h1>
-</head>
-
-<body>
-    <!-- partial:index.partial.html -->
-    <html>
-
-    <head>
-
-    </head>
-
-    <body>
-        <div class="area"></div>
-        <nav class="main-menu">
-            <ul>
-                <li>
-                    <a href="#">
-                        <i class="fa fa-home fa-2x"></i>
-                        <span class="nav-text">
-                            ADMIN
-                        </span>
-                    </a>
-
-                </li>
-                <li class="has-subnav">
-                    <a href="admin_user_update1.php">
-                        <i class="fa fa-laptop fa-2x"></i>
-                        <span class="nav-text">
-                            Edit/Update User
-                        </span>
-                    </a>
-
-
-                <li class="has-subnav">
-                    <a href="admin_add_user.php">
-                        <i class="fa fa-folder-open fa-2x"></i>
-                        <span class="nav-text">
-                            Add User
-                        </span>
-                    </a>
-
-                </li>
-
-
-                <li>
-                    <a href="admin_delete_user.php">
-                        <i class="fa fa-info fa-2x"></i>
-                        <span class="nav-text">
-                            Delete User
-                        </span>
-                    </a>
-                </li>
-            </ul>
-
-            <ul class="logout">
-                <li>
-                    <a href="../login_system/backend/_logout.php">
-                        <i class="fa fa-power-off fa-2x"></i>
-                        <span class="nav-text">
-                            Logout
-                        </span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </body>
-
-    </html>
-    <!-- partial -->
-
-</body>
-
-</html>
-
-<doctype html>
-<html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-
-  </head>
+    <title>ADMIN DASHBOARD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</head>
   <body>
-    
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="admin_details.php">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20"style="width:30px;" fill="currentColor">
+        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+        </svg>
+    </a>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    <h3 class="container-fluid  text-white" style="text-align: center">Hello <?php echo $data[1];?> You are now an ADMIN..</h3>
+    <div class="d-flex">
+    <a class="navbar-brand" href="../login_system/backend/_logout.php">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" style="width:30px;" stroke="currentColor" strokeWidth={2}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+        </svg>
+    </a>
+    </div>
+  </div>
+</nav>
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
-    <div class="container">
-    <table class="table table-striped table-bordered">
+<div class="container">
+    <a href="admin_add_user.php" class="btn btn-primary"style="margin-top:100px;margin-left:90%;">ADD USER</a>
+</div>
+<div class="container">
+    <table class="table table-bordered table-responsive center" style="margin-top:20px;margin-left:-90px;">
+        <thead class="table-danger">
         <tr>
-            <th>NAME</th>
+            <th>Name</th>
             <th>Email</th>
-            <th>User role</th>
-            <th>Password</th>
             <th>DOB</th>
             <th>Age</th>
             <th>Sex</th>
@@ -133,43 +58,55 @@ $data=mysqli_fetch_row($result);
             <th>Address</th>
             <th>City</th>
             <th>Phone number</th>
+            <th>Edit/Update</th>
+            <th>Delete</th>
         </tr>
+        </thead>
 
         <?php
 
         include 'config.php';
         $sql="SELECT * FROM `donor_table` ;";
         $result= mysqli_query($conn,$sql);
-        // $total = mysqli_fetch_rows($result);
-    
-        // if(mysqli_fetch_rows($result)!=0)
-        // {
-            while($data = mysqli_fetch_assoc($result))
+        if($result)
+        {
+            while($data = mysqli_fetch_array($result))
             {
-                echo"
-                <tr>
-                    <td>".$data['username']."</td>
-                    <td>".$data['email']."</td>
-                    <td>".$data['userrole']."</td>
-                    <td>".$data['password']."</td>
-                    <td>".$data['dob']."</td>
-                    <td>".$data['age']."</td>
-                    <td>".$data['sex']."</td>
-                    <td>".$data['bloodgroup']."</td>
-                    <td>".$data['weight']."</td>
-                    <td>".$data['address']."</td>
-                    <td>".$data['city']."</td>
-                    <td>".$data['phonenumber']."</td>
-                </tr>";
+                ?>
+                    <tbody>
+                        <tr>
+                            <th> <?php echo $data['username'] ?> </th>
+                            <th> <?php echo $data['email'] ?> </th>
+                            <th> <?php echo $data['dob'] ?> </th>
+                            <th> <?php echo $data['age'] ?> </th>
+                            <th> <?php echo $data['sex'] ?> </th>
+                            <th> <?php echo $data['bloodgroup'] ?> </th>
+                            <th> <?php echo $data['weight'] ?> </th>
+                            <th> <?php echo $data['address'] ?> </th>
+                            <th> <?php echo $data['city'] ?> </th>
+                            <th> <?php echo $data['phonenumber'] ?> </th>
+                        <form action="admin_user_update.php" method="post">
+                            <input type="hidden" name="update" value="<?php echo $data['email'] ?>">
+                            <th> <button type="submit" name="submit" class="btn btn-success ">EDIT</button> </th>
+                        </form>
+                        <form action="admin_delete_user.php" method="post">
+                            <input type="hidden" name="delete" value="<?php echo $data['email'] ?>">
+                            <th> <button type="submit" name="submit" class="btn btn-danger ">DELETE</button> </th>
+                        </form>
+                        </tr>
+                    </tbody>
+
+                <?php
             }
-        // }
-        // else 
-        // {
-        //     echo "No records found";
-        // }
-            
+        }
+        else
+        {
+            echo "No record found";
+        }
         ?>    
     </table>
-               
-</body>
+</div>    
+    
+    
+  </body>
 </html>
