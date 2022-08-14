@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<li><a style="text-decoration: none;color:white " class="nodec" href="../login_system/index.html">Home</a></li>
+<li><a style="text-decoration: none;color:white;margin-top:20px; " class="nodec" href="../login_system/index.html">Home</a></li>
     <center>
       
         <h1>SEARCH BLOOD</h1>

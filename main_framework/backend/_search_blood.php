@@ -17,7 +17,7 @@ echo'<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
 <div>
     Make sure to not leave the bloodgroup selection empty
 </div>';
-include('../login_system/backend/config.php');
+include('config.php');
 
 if(isset($_POST['search']))
 {
