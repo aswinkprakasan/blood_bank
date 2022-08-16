@@ -56,7 +56,9 @@ if(isset($_POST['submit'])) {
 
       if($result)
     {
-        echo '<script> alert("Registered successfully") </script>';
+      echo '<script type="text/JavaScript">
+      if(!alert("Registered successfully")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/register.php";
+      </script>';
         echo"<div class='alert alert-primary' role='alert'>
     Go to login page <a href='../login.php'>  click here</a>
   </div>";

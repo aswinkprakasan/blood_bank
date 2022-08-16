@@ -20,7 +20,7 @@
         <h1>SEARCH BLOOD</h1>
         <div class="container">
             <br><br>
-            <form action="search_blood.php" method="POST">
+            <form action="search_blood.php" method="POST" id="form">
                 <div class="col">
 
                     <select name="bloodgroup" class="custom-select custom-select-sm">
@@ -70,7 +70,9 @@
                 integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
                 crossorigin="anonymous"></script>
 
-            
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="search_blood.js"></script>            
 </body>
 
 </html>

@@ -11,6 +11,7 @@ if(!isset($_SESSION["mail"]))
 <html lang="en">
 <head>
   <title>EDIT USER</title>
+  <link rel="stylesheet" href="user_update.css">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -45,7 +46,7 @@ if(!isset($_SESSION["mail"]))
             <div class= "container">
             <div class= "jumbotron" style="margin-top:100px;margin-left:20%;margin-right:20%;margin-bottom:20px;">
 
-            <form action="backend/_user_update.php" method="post">
+            <form action="backend/_user_update.php" method="post" id="form">
                 <input type="hidden" name="hide" value="<?php echo $data['email'] ?>">
                 <div class="form-group">
                     <input type="text" name="username" value="<?php echo $data['username'] ?>" class="form-control" placeholder="User name">
@@ -113,6 +114,8 @@ if(!isset($_SESSION["mail"]))
         }
 
     ?>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="user_update.js"></script> 
 </body>
 </html>

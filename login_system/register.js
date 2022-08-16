@@ -1,7 +1,6 @@
 $(document).ready(function() {
     // var email = $('#email').val();
-    errorClass: "error fail-alert";
-    validClass: "valid success-alert";
+    
 
     jQuery.validator.addMethod("emailvalid", 
     function isEmail(email) 
@@ -12,13 +11,15 @@ $(document).ready(function() {
 
     jQuery.validator.addMethod("lettersonly", function(value, element) {
         return this.optional(element) || /^[a-z]+$/i.test(value);
-      }, "Letters only please");
+      }, "Only letters are allowed");
 
     jQuery.validator.addMethod("phnumvalid", function(value, element) {
         return this.optional(element) || /^[6-9]\d{9}$/i.test(value);
       }, "Please enter a valid phonenumber");
     
    $('#form').validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
     rules:{
         email :{
             required:true,
@@ -27,7 +28,8 @@ $(document).ready(function() {
         },
         username :{
             lettersonly:true,
-            required:true
+            required:true,
+            minlength:3
         },
         password :{
             required:true,
@@ -40,10 +42,11 @@ $(document).ready(function() {
         weight :{
             required:true,
             number :true,
-            min : 50
+            max:150
         },
         address :{
-            required:true
+            required:true,
+            minlength:10
         },
         city :{
             required :true,
@@ -53,38 +56,68 @@ $(document).ready(function() {
             required:true,
             phnumvalid :true,
             minlength:10,
-            maxlength:10
-
+            maxlength:10,
+            number :true
+        },
+        dob :{
+            required:true,
+            date:true
+        },
+        sex :{
+            required:true
+        },
+        bloodgroup :{
+            required:true
         }
 
     },
 
-    // messages: {
-    //     email :{
-    //         required:"Donot leave your email address empty"
-    //     },
-    //     username :{
-    //         lettersonly:"Numerical values are not allowed",
-    //         required:"Please enter your name"
-    //     },
-    //     password :{
-    //         required:"Donot leave your password blank"
-    //     },
-    //     cpassword :{
+    messages: {
+        email :{
+            required:"Donot leave your email address empty",
+            
+        },
+        username :{
+            
+            required:"Donot leave your name empty",
+            minlength:"Name should contain atleast 3 characters"
+        },
+        password :{
+            required:"Donot leave your password blank",
+            minlength:"Passwords should contain atleast 8 characters"
+        },
+        cpassword :{
+            required:"Donot leave your password blank",
+            minlength:"Passwords should contain atleast 8 characters"
+        },
+        weight :{
+            required:"Donot leave your weight empty",
+            number:"Only numerical values are allowed",
+            max:"Please reduce your weight"   
+        },
+        address :{
+            required:"Donot leave your weight empty",
+            minlength:"Atleat 10 characters are required"
+        },
+        city :{
+            required:"Donot leave your city empty",
+        },
+        phonenumber :{
+            required:"Donot leave your phonenumber empty",
+            minlength:"Minimum length of the phone number must be 10",
+            maxlength:"Maximum length of the phone number must be 10",
+            number :"Only numerical values are allowed"
+        },
+        dob :{
+            required:"Donot leave your date of birth empty"
+        },
+        sex :{
+            required:"Donot leave your sex empty"
+        },
+        bloodgroup :{
+            required:"Donot leave your blood group empty"
+        }
 
-    //     },
-    //     weight :{
-            
-    //     },
-    //     address :{
-            
-    //     },
-    //     city :{
-            
-    //     },
-    //     phonenumber :{
-            
-    //     }
-    // }
+    }
    })
 })

@@ -13,6 +13,7 @@ if(!isset($_SESSION["mail"]))
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ADD USER</title>
+    <link rel="stylesheet" href="admin_add_user.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </head>
@@ -33,7 +34,7 @@ if(!isset($_SESSION["mail"]))
 <div class= "container">
 <div class= "jumbotron" style="margin-top:100px;margin-left:20%;margin-right:20%;margin-bottom:20px;">
 
-<form action="backend/_admin_add_user.php" method="post">
+<form action="backend/_admin_add_user.php" method="post" id="form">
 <div class="form-group">
                     <!-- username -->
                     <input type="text" name="username" class="form-control" placeholder="User name" required>
@@ -97,5 +98,8 @@ if(!isset($_SESSION["mail"]))
 </div>
 </div>
     
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="admin_add_user.js"></script>
   </body>
 </html>

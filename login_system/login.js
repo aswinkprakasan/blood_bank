@@ -11,6 +11,9 @@ $(document).ready(function() {
     }
     , "Please enter a valid email address")
    $('#form').validate({
+    errorClass: "error fail-alert",
+    validClass: "valid success-alert",
+
     rules:{
         email :{
             required:true,
@@ -21,18 +24,18 @@ $(document).ready(function() {
             required:true,
             minlength:8
         }
-    }
+    },
 
-    // messages: {
-    //     email :{
-    //         required:"don't be careless",
+    messages: {
+        email :{
+            required:"Donot leave this blank empty"
            
 
-    //     },
-    //     password :{
-    //         required:"don't be afraid",
-    //         minlength:"hello"
-    //     }
-    // }
+        },
+        password :{
+            required:"Please enter your email address",
+            minlength:"Passwords should contain atleast 8 characters"
+        }
+    }
    })
 })

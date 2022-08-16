@@ -6,13 +6,14 @@
     </head>
 
     <body>
+        
         <div class="header-area">
 
             <ul class="links">
-
                 <li><a style="text-decoration: none ;color: #ff0000" class="nodec" href="index.html">Home</a></li>
             </ul>
         </div>
+        <!-- <h1>Login Page</h1> -->
         <div class="login-page">
             <div class="form">
 
@@ -21,7 +22,7 @@
                     <input type="password" name="password" placeholder="password" />
                     <button type="submit" name="submit">login</button>
                     <p class="message">Not registered? <a href="register.php">Create an account</a></p><br>
-                    <a class="message" href="forgot.php">Forgot your password</a>
+                    <a class="messager" href="forgot.php">Forgot your password</a>
                 </form>
             </div>
         </div>

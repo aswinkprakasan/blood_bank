@@ -52,11 +52,14 @@ if(isset($_POST['search']))
         $bloodgroup=$row['bloodgroup'];
         $address=$row['address'];
         $phonenumber=$row['phonenumber'];
-          
-
+        
+        if($row['age']>18 && $row['weight']>45 && $row['age']<85)
+        {
         $sql= "SELECT * FROM last_donation_table where email='$email'";
         $result1=mysqli_query($conn,$sql);
         $data = mysqli_fetch_array($result1);
+        if(mysqli_num_rows($result1) > 0)
+        {
         ?>
             <tr>
               <td><?php echo $username?></td>
@@ -86,6 +89,13 @@ if(isset($_POST['search']))
               ?></td>
             </tr>
             <?php
+        }
+        }
+        else{
+          echo"<tr>
+            <td colspan='6'>No Record Found</td>
+        </tr>";
+        }
       }
   }
 

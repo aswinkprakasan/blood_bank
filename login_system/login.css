@@ -8,25 +8,28 @@
 
 .form {
   position: relative;
+  margin-top: 100px;
   z-index: 1;
   background: #FFFFFF;
-  max-width: 360px;
-  margin: 0 auto 100px;
-  padding: 45px;
+  max-width: 400px;
+  border-radius:10px;
+  margin: 0 auto 70px;
+  padding: 65px;
   text-align: center;
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  box-shadow: 0 0 20px 0 rgba(2, 0, 0, 1), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
-  background: #f2f2f2;
+  background: #f1f1f1;
   width: 100%;
   border: 0;
   margin: 0 0 15px;
   padding: 15px;
   box-sizing: border-box;
   font-size: 14px;
+  border-radius:10px;
 }
 
 .form button {
@@ -38,10 +41,11 @@
   border: 0;
   padding: 15px;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 16px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+  border-radius:10px;
 }
 
 .form button:hover,
@@ -53,12 +57,18 @@
 .form .message {
   margin: 15px 0 0;
   color: #b3b3b3;
-  font-size: 12px;
+  font-size: 15px;
   text-decoration: none;
 }
 
 .form .message a {
   color: #d90000;
+  text-decoration: none;
+}
+.form .messager {
+  margin: 15px 0 0;
+  color: #12af12;
+  font-size: 15px;
   text-decoration: none;
 }
 
@@ -110,15 +120,19 @@
 body {
   background: #d90000;
   /* fallback for old browsers */
-  background: rgb(141, 10, 111);
-  background: linear-gradient(90deg, rgba(141, 10, 1, 1) 0%, rgba(118, 1, 8, 1) 50%);
+  /* background: rgb(141, 10, 111); */
+  background: linear-gradient(90deg, rgb(209, 0, 0) 10%, rgb(143, 24, 3) 70%);
+  /* background: linear-gradient(90deg, rgba(141, 10, 1, 1) 0%, rgba(118, 1, 8, 1) 50%); */
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
-  color: #0d8334;
+
+  color: #e0b27d;
+  text-align: center;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 
@@ -142,4 +156,28 @@ li.nodec,
 a:link,
 a:visited {
   text-decoration: none;
+}
+
+label.error {
+  color: red;
+  font-size: 15px;
+  display: block;
+  margin-top: -10px;
+  margin-left: -5px;
+
+}
+
+label.error.fail-alert {
+  border-radius: 4px;
+  padding: 2px 0 6px 6px;
+}
+
+input.valid.success-alert {
+  border: 2px solid #4CAF50;
+}
+
+input.error, textarea.error {
+
+  font-weight: 300;
+  color: red;
 }
