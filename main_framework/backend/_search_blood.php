@@ -44,18 +44,48 @@ if(isset($_POST['search']))
 
   if(mysqli_num_rows($result) > 0)
   {
+    
       while($row =mysqli_fetch_array($result))
       {
+        $email=$row['email'];
         $username=$row['username'];
         $bloodgroup=$row['bloodgroup'];
         $address=$row['address'];
         $phonenumber=$row['phonenumber'];
-        echo"<tr>
-              <td>".$username."</td>
-              <td>".$bloodgroup."</td>
-              <td>".$address."</td>
-              <td>".$phonenumber."</td>
-            </tr>";
+          
+
+        $sql= "SELECT * FROM last_donation_table where email='$email'";
+        $result1=mysqli_query($conn,$sql);
+        $data = mysqli_fetch_array($result1);
+        ?>
+            <tr>
+              <td><?php echo $username?></td>
+              <td><?php echo $bloodgroup?></td>
+              <td><?php echo $address?></td>
+              <td><?php echo $phonenumber?></td>
+              <td><?php 
+              
+              if($data['days']>50)
+              { ?>
+                <div class="container">
+  
+                  <h5><span style="color:white;" class="badge bg-success">Available</span></h5>
+  
+                </div>
+              <?php
+              }
+              else{
+                ?>
+                <div class="container">
+  
+                  <h5><span style="color:white;" class="badge bg-danger">Not available</span></h5>
+  
+                </div>
+              <?php
+              }
+              ?></td>
+            </tr>
+            <?php
       }
   }
 

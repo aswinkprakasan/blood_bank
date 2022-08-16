@@ -28,7 +28,7 @@
         
         <div class= "container">
         <div class= "jumbotron" style="margin-top:5px;margin-left:20%;margin-right:20%;margin-bottom:20px;">
-        <form method="post" action="backend/_register.php">
+        <form method="post" action="backend/_register.php" id="form">
             <div class="col">
                 <div class="col">
                     <!-- username -->
@@ -52,7 +52,7 @@
                         <option selected>Sex</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="LGBTQ">LGBTQ</option>
+                        <option value="Others">Others</option>
                     </select>
                 </div><br>
                 <div class="col">
@@ -85,7 +85,7 @@
                     <input type="email" name="email" class="form-control" placeholder="Email"required>
                 </div><br>
                 <div class="col">
-                    <input type="text" name="phonenumber" class="form-control" placeholder="Mobile number"pattern="[6-9]\d{9}" title="enter a valid phone number"required>
+                    <input type="text" name="phonenumber" class="form-control" placeholder="Mobile number" title="enter a valid phone number"required>
                 </div><br>
             </div>
             <div class="col">
@@ -96,7 +96,9 @@
         </div>
         </div>
 
-        
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="register.js"></script>        
 </body>
 
 </html>
