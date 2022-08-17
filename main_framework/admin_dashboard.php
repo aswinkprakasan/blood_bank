@@ -91,7 +91,14 @@ $data=mysqli_fetch_row($result);
                         </form>
                         <form action="admin_delete_user.php" method="post">
                             <input type="hidden" name="delete" value="<?php echo $data['email'] ?>">
-                            <th> <button type="submit" name="submit" class="btn btn-danger ">DELETE</button> </th>
+                            <th> <button type="submit" onclick="ConfirmDelete()"name="submit" class="btn btn-danger ">DELETE</button> </th>
+                            <script type="text/javascript">
+                                function ConfirmDelete()
+                                {
+                                    if (confirm("Delete Account?"))
+                                    location.href='admin_delete_user.php';
+                                }
+                            </script> 
                         </form>
                         </tr>
                     </tbody>
@@ -106,7 +113,7 @@ $data=mysqli_fetch_row($result);
         ?>    
     </table>
 </div>    
-    
+
     
   </body>
 </html>

@@ -36,7 +36,9 @@ if(isset($_POST['submit'])) {
    $emailcount=mysqli_num_rows($query);
    if ($emailcount>0) 
    {
-    echo '<script> alert("Email already exists") </script>';
+    echo '<script type="text/JavaScript">
+      if(!alert("Email already exists")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/register.php";
+      </script>';
    }
 
    else
@@ -57,22 +59,24 @@ if(isset($_POST['submit'])) {
       if($result)
     {
       echo '<script type="text/JavaScript">
-      if(!alert("Registered successfully")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/register.php";
+      if(!alert("Registered successfully")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/login.php";
       </script>';
-        echo"<div class='alert alert-primary' role='alert'>
-    Go to login page <a href='../login.php'>  click here</a>
-  </div>";
+        
     }
     else
     {
-        echo '<script> alert("Not Registered") </script>';
+      echo '<script type="text/JavaScript">
+      if(!alert("Not Registered")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/register.php";
+      </script>';
     }
 
 
     }
     else
     {
-      echo '<script> alert("Password not matching") </script>';
+      echo '<script type="text/JavaScript">
+      if(!alert("Password not matching")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/register.php";
+      </script>';
     }
    }
   

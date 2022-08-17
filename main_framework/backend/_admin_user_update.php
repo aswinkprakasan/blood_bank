@@ -24,13 +24,16 @@ if(isset($_POST['update']))
     
     if($result)
     {
-        echo '<script type="text/javascript"> alert("Updated successfully") </script>';
-        header("location:../admin_dashboard.php");
+        echo '<script type="text/JavaScript">
+      if(!alert("Updated successfully")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/main_framework/admin_dashboard.php";
+      </script>';
        
     }
     else
     {
-        echo '<script type="text/javascript"> alert("Data not updated") </script>';
+        echo '<script type="text/JavaScript">
+      if(!alert("Updation failed")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/main_framework/admin_user_update.php";
+      </script>';
     }
    }
 

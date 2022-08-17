@@ -6,9 +6,7 @@ if(!isset($_SESSION["mail"]))
 }
 include ('config.php');
 $mail=$_SESSION['mail'];
-$sql1="SELECT * FROM `last_donation_table` WHERE email='$mail'";
-$result1=mysqli_query($conn,$sql1);
-$data1=mysqli_fetch_row($result1);
+
 ?>
 
 <!DOCTYPE html>
@@ -39,6 +37,13 @@ $data1=mysqli_fetch_row($result1);
 <div class="container">
     <h3>Last donation Details</h3>
     <br>
+    <?php
+        $sql1="SELECT * FROM `last_donation_table` WHERE email='$mail'";
+        $result1=mysqli_query($conn,$sql1);
+        $data1=mysqli_fetch_row($result1);
+        if(mysqli_num_rows($result1) > 0)
+        {
+    ?>
     <table class="table table-striped table-bordered" style="margin-top:50px;margin-left:10px;margin-right:50px;margin-bottom:20px;">
             <thead class="thead-dark">
                 
@@ -47,6 +52,14 @@ $data1=mysqli_fetch_row($result1);
                 
 </thead>
 </table></div>
+<?php
+        }
+        else{
+            echo'<div class="alert alert-warning">
+            <strong>Ohh no !!</strong> You have not updated your last donation date.
+          </div>';
+        }
+        ?>
   <nav class="main-menu">
             <ul>
                 <li>
@@ -100,7 +113,6 @@ $data1=mysqli_fetch_row($result1);
         </nav>
   </body>
 
-<!-- partial -->
   
 </body>
 </html>

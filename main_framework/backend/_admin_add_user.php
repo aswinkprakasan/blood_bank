@@ -32,14 +32,15 @@ $result=mysqli_query($conn,$sql);
 
 if($result)
     {
-        echo '<script type="text/javascript"> alert("Added successfully") </script>';
-        echo"<div class='alert alert-primary' role='alert'>
-    Go to login page <a href='../admin_dashboard.php'>  click here</a>
-  </div>";
+        echo '<script type="text/JavaScript">
+      if(!alert("Added successfully")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/main_framework/admin_dashboard.php";
+      </script>';
     }
     else
     {
-        echo '<script type="text/javascript"> alert("Data not updated") </script>';
+        echo '<script type="text/JavaScript">
+      if(!alert("User not addes")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/main_framework/admin_add_user.php";
+      </script>';
     }
 
 $conn->close();

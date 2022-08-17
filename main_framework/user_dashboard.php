@@ -8,7 +8,12 @@ include 'config.php';
 $mail=$_SESSION['mail'];
 $sql="SELECT * FROM `donor_table` WHERE email='$mail'";
 $result=mysqli_query($conn,$sql);
-$data=mysqli_fetch_row($result);
+$data=mysqli_fetch_array($result);
+
+$sql1="SELECT * FROM last_donation_table WHERE email='$mail'";
+$result1=mysqli_query($conn,$sql1);
+$data1=mysqli_fetch_array($result1);
+
 ?>
 
 
@@ -44,8 +49,68 @@ $data=mysqli_fetch_row($result);
                 <tr class="table-info"><th scope="row">Address</th><td><?php echo$data[9]?></td></tr>
                 <tr class="table-info"><th scope="row">City</th><td><?php echo$data[10]?></td></tr>
                 <tr class="table-info"><th scope="row">Phone number</th><td><?php echo$data[11]?></td></tr>
+                <tr class="table-info"><th scope="row">Donation interval</th><td><?php echo$data1[1]?></td></tr>
+</div>
+<div>
+<?php
+
+if(mysqli_num_rows($result1) > 0)
+{
+    if($data1['days']>90)
+    {
+        echo'<div class="alert alert-success alert-dismissible fade show">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Ohh Yeah!!</strong> You are eligible to donate based on your donation date.
+      </div>';
+    }
+    else{
+        echo'<div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Ohh No!!</strong> You are not eligible to donate based on your donation date.
+      </div>';
+    }
+}
+else{
+    echo'<div class="alert alert-info alert-dismissible fade show">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Oops!!</strong> Last donation date not updated.
+      </div>';
+}
+?>
+</div>
+<div>
+<?php
+
+    if($data['age']<18)
+    {
+        echo'<div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Oops!!</strong> Wait until you are 18...
+      </div>';
+    }
+    
+
+?>
+
+
 </div>
 
+<div>
+<?php
+
+    if($data['weight']<45)
+    {
+        echo'<div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <strong>Oops!!</strong> Go increase your weight...
+      </div>';
+    }
+    
+
+?>
+
+
+</div>
   <body><div class="area"></div><nav class="main-menu">
             <ul>
                 <li>

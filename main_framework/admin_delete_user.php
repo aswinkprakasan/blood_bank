@@ -9,15 +9,18 @@ if($_SERVER['REQUEST_METHOD'] == 'POST')
     $result=mysqli_query($conn,$sql); 
     if($result)
     {
-        echo '<script type="text/javascript"> alert("Deleted successfully") </script>';
+        echo '<script type="text/JavaScript">
+      if(!alert("Deleted successfully")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/main_framework/admin_dashboard.php";
+      </script>';
         
     }
     else
     {
-        echo '<script type="text/javascript"> alert("User not deleted") </script>';
+        echo '<script type="text/JavaScript">
+        if(!alert("Deletion failed")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/main_framework/admin_dashboard.php";
+        </script>';
     }
 
-    header("location:admin_dashboard.php");
    }
   
 
