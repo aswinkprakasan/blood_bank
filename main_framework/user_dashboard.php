@@ -49,7 +49,11 @@ $data1=mysqli_fetch_array($result1);
                 <tr class="table-info"><th scope="row">Address</th><td><?php echo$data[9]?></td></tr>
                 <tr class="table-info"><th scope="row">City</th><td><?php echo$data[10]?></td></tr>
                 <tr class="table-info"><th scope="row">Phone number</th><td><?php echo$data[11]?></td></tr>
-                <tr class="table-info"><th scope="row">Donation interval</th><td><?php echo$data1[1]?></td></tr>
+                <tr class="table-info"><th scope="row">Donation interval</th><td><?php 
+                if(mysqli_num_rows($result1) > 0)
+                {echo$data1[1];}
+                else
+                {echo "Last donation date not updated";}?></td></tr>
 </div>
 <div>
 <?php

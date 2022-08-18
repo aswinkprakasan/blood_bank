@@ -96,7 +96,7 @@ $(document).ready(function() {
             max:"Please reduce your weight"   
         },
         address :{
-            required:"Donot leave your weight empty",
+            required:"Donot leave your address empty",
             minlength:"Atleat 10 characters are required"
         },
         city :{

@@ -6,20 +6,14 @@ include ('config.php');
 $mail=$_SESSION['mail'];
 $last_don=$_POST['last_donation'];
 $email=$_SESSION["mail"];
-   
-$sql="INSERT INTO last_donation_table (email,days,last_don_date) VALUES ('$email', '0','$last_don')";
-$result=mysqli_query($conn,$sql);
-
-$sql1="SELECT DATEDIFF(now(),`last_don_date`) AS dated FROM last_donation_table WHERE email='$email'";
-$result=mysqli_query($conn,$sql1);
-$data=mysqli_fetch_row($result);
 
 
-$sql="UPDATE `last_donation_table` SET `days` = '$data[0]' WHERE `last_donation_table`.`email` = '$email'";
-$result=mysqli_query($conn,$sql);
-
-    
-$sql = "UPDATE `last_donation_table` SET `last_don_date` = '$last_don' WHERE `last_donation_table`.`email` = '$email'";
+$emailcheck="SELECT * FROM last_donation_table WHERE email = '$email'";
+$query=mysqli_query($conn,$emailcheck);
+$emailcount=mysqli_num_rows($query);
+if ($emailcount>0) 
+{
+  $sql = "UPDATE `last_donation_table` SET `last_don_date` = '$last_don' WHERE `last_donation_table`.`email` = '$email'";
 $result=mysqli_query($conn,$sql); 
 
 $sql1="SELECT DATEDIFF(now(),`last_don_date`) AS dated FROM last_donation_table WHERE email='$email'";
@@ -43,8 +37,33 @@ if($result)
       if(!alert("Updation failed")) document.location = "http://'.$_SERVER['HTTPHTTP_HOST'].'/blood_bank/main_framework/last_donation.php";
       </script>';
     }
-    
+}
+else{
+  $sql="INSERT INTO last_donation_table (email,days,last_don_date) VALUES ('$email', '0','$last_don')";
+$result=mysqli_query($conn,$sql);
 
+$sql1="SELECT DATEDIFF(now(),`last_don_date`) AS dated FROM last_donation_table WHERE email='$email'";
+$result=mysqli_query($conn,$sql1);
+$data=mysqli_fetch_row($result);
+
+
+$sql="UPDATE `last_donation_table` SET `days` = '$data[0]' WHERE `last_donation_table`.`email` = '$email'";
+$result=mysqli_query($conn,$sql);
+
+if($result)
+    {
+      echo '<script type="text/JavaScript">
+      if(!alert("Last donation date updated")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/main_framework/last_donation.php";
+      </script>';
+       
+    }
+    else
+    {
+      echo '<script type="text/JavaScript">
+      if(!alert("Updation failed")) document.location = "http://'.$_SERVER['HTTPHTTP_HOST'].'/blood_bank/main_framework/last_donation.php";
+      </script>';
+    }
+}
 
 
 $conn->close();
