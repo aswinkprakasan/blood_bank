@@ -50,7 +50,7 @@ if(!isset($_SESSION["mail"]))
                 <div class="form-group">
 
                     <select name="sex" class="custom-select custom-select-sm form-control" required>
-                        <option selected>Sex</option>
+                        <option value="" selected>Sex</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="LGBTQ">LGBTQ</option>
@@ -59,7 +59,7 @@ if(!isset($_SESSION["mail"]))
                 <div class="form-group">
 
                     <select name="bloodgroup" class="custom-select custom-select-sm form-control" required>
-                        <option selected>Blood group</option>
+                        <option value="" selected>Blood group</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
                         <option value="B+">B+</option>
