@@ -1,3 +1,35 @@
+<?php
+include ('backend/config.php');
+session_start();
+
+
+if(isset($_POST['forgot']))
+{
+$email=$_POST["email"];
+$dob=$_POST["dob"];
+$_SESSION["mail"]=$email;
+
+
+
+    $sql="SELECT * FROM donor_table WHERE email='$email' AND dob='$dob'";
+    $result=mysqli_query($conn,$sql);
+    $check=mysqli_num_rows($result);
+
+    if($check===1)
+    {
+        header("Location:backend/_forgot.php");
+    }
+
+    else
+    {
+      echo '<script type="text/JavaScript">
+              if(!alert("Email and dob not matching")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/forgot.php";
+              </script>';
+    }
+
+}
+      ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +55,7 @@
 </nav>
 <div class= "container">
     <div class= "jumbotron" style="margin-top:100px;margin-left:20%;margin-right:20%;margin-bottom:20px;">
-<form action="backend/_forgot.php" method="post" id="form">
+<form action="forgot.php" method="post" id="form">
                 
                 <div class="form-group">
                     <input type="email" name="email"  class="form-control" placeholder="Email Address" required>
@@ -45,3 +77,4 @@
 
 </body>
 </html>
+

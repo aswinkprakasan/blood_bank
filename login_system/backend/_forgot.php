@@ -1,23 +1,45 @@
 <?php
-include ('config.php');
 session_start();
-
-
-if(isset($_POST['forgot']))
+$mail=$_SESSION['mail'];
+if(!isset($_SESSION["mail"]))
 {
-$email=$_POST["email"];
-$dob=$_POST["dob"];
-$_SESSION["mail"]=$email;
+    header("Location:../login.php");
+}
+include ('config.php');
+if(isset($_POST['submit']))
+{
+    $npass=$_POST['npass'];
+    $cnpass=$_POST['cnpass'];
 
+    if($npass===$cnpass)
+        {
+            $sql1="UPDATE `donor_table` SET `password` = '$npass' WHERE `donor_table`.`email` = '$mail'";
+            $result1=mysqli_query($conn,$sql1);
 
+            if($result1)
+            {
+              echo '<script type="text/JavaScript">
+              if(!alert("Password changed successfully")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/login.php";
+              </script>';
+              session_destroy();
+                
+            }
+            else
+            {
+              echo '<script type="text/JavaScript">
+              if(!alert("Password not changed")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/forgot.php";
+              </script>';
+            }
+        }
+        else
+        {
+            echo '<script type="text/JavaScript">
+              if(!alert("New Password not matching")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/forgot.php";
+              </script>';
+        }
+}
 
-    $sql="SELECT * FROM donor_table WHERE email='$email' AND dob='$dob'";
-    $result=mysqli_query($conn,$sql);
-    $check=mysqli_num_rows($result);
-
-    if($check===1)
-    {
-      ?>
+?>
 
      
 <!DOCTYPE html>
@@ -49,7 +71,7 @@ $_SESSION["mail"]=$email;
     </nav>
     <div class="container">
         <div class="jumbotron" style="margin-top:100px;margin-left:20%;margin-right:20%;margin-bottom:20px;">
-            <form action="_forgot1.php" method="post" id="form">
+            <form action="_forgot.php" method="post" id="form">
 
                 <div class="form-group">
                     <input type="password" name="npass" class="form-control" placeholder="New password" required>
@@ -69,21 +91,8 @@ $_SESSION["mail"]=$email;
         </div>
     </div>
 
-
 </body>
 
 </html>
 
 
-<?php
-    }
-
-    else
-    {
-      echo '<script type="text/JavaScript">
-              if(!alert("Email and dob not matching")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/forgot.php";
-              </script>';
-    }
-
-}
-?>

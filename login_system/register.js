@@ -7,7 +7,7 @@ $(document).ready(function() {
     {
         var regex = /^([a-z0-9_.+-])+\@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/;
         return regex.test(email);
-    }, "Please enter a valid email address")
+    }, "Please enter a valid email address");
 
     jQuery.validator.addMethod("lettersonly", function(value, element) {
         return this.optional(element) || /^[a-z]+$/i.test(value);
