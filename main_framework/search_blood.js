@@ -13,18 +13,18 @@ $(document).ready(function() {
     rules:{
         
         city :{
-            required :true,
+            
             lettersonly :true
         }
 
     },
 
-    messages: {
+    // messages: {
        
-        city :{
-            required:"Donot leave your city empty",
-        }
+    //     city :{
+    //         required:"Donot leave your city empty",
+    //     }
 
-    }
+    // }
    })
 })

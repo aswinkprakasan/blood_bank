@@ -90,19 +90,20 @@ if(isset($_POST['search']))
             </tr>
             <?php
         }
-        }
+        
         else{
           echo"<tr>
-            <td colspan='6'>No Record Found</td>
+            <td colspan='6'>No Record Found1</td>
         </tr>";
         }
+      }
       }
   }
 
   else
   {
     echo"<tr>
-            <td colspan='6'>No Record Found</td>
+            <td colspan='6'>No Record Found2</td>
         </tr>";
   }
 }

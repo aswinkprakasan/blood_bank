@@ -30,7 +30,9 @@ if(isset($_POST['submit']))
     }
     else
     {
-        echo '<script type="text/javascript"> alert("Email and Password not matching!!") </script>';
+        echo '<script type="text/JavaScript">
+        if(!alert("Email and password not matching")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/login.php";
+        </script>';
     }
     
 }

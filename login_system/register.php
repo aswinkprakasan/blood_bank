@@ -49,7 +49,7 @@
                 <div class="col">
 
                     <select name="sex" class="custom-select custom-select-sm"required>
-                        <option selected>Sex</option>
+                        <option value="" selected>Sex</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                         <option value="Others">Others</option>
@@ -58,7 +58,7 @@
                 <div class="col">
 
                     <select name="bloodgroup" class="custom-select custom-select-sm form-control" required>
-                        <option selected>Blood group</option>
+                        <option value="" selected>Blood group</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
                         <option value="B+">B+</option>
@@ -85,7 +85,7 @@
                     <input type="email" name="email" class="form-control" placeholder="Email"required>
                 </div><br>
                 <div class="col">
-                    <input type="text" name="phonenumber" class="form-control" placeholder="Mobile number" title="enter a valid phone number"required>
+                    <input type="text" name="phonenumber" class="form-control" placeholder="Mobile number" required>
                 </div><br>
             </div>
             <div class="col">

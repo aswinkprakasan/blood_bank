@@ -5,7 +5,7 @@ $(document).ready(function() {
     jQuery.validator.addMethod("emailvalid", 
     function isEmail(email) 
     {
-        var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        var regex = /^([a-z0-9_.+-])+\@(([a-z0-9-])+\.)+([a-z0-9]{2,4})+$/;
         return regex.test(email);
     }, "Please enter a valid email address")
 

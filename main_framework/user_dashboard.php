@@ -128,7 +128,7 @@ else{
                 </li>
                 <li class="has-subnav">
                     <a href="user_update.php">
-                        <i class="fa fa-laptop fa-2x"></i>
+                        <i class="fa fa-pencil fa-2x"></i>
                         <span class="nav-text">
                             Edit/Update Details
                         </span>
@@ -137,22 +137,24 @@ else{
                 
                 <li class="has-subnav">
                     <a href="last_donation.php">
-                       <i class="fa fa-folder-open fa-2x"></i>
+                       <i class="fa fa-tint  fa-2x"></i>
                         <span class="nav-text">
                             Last donation date
                         </span>
                     </a>
                    
                 </li>
-               
+
                 <li>
-                    <a href="#">
-                       <i class="fa fa-info fa-2x"></i>
+                    <a href="../login_system/resetpass.php">
+                       <i class="fa fa-key fa-2x"></i>
                         <span class="nav-text">
-                            Contact Us
+                            Change password
                         </span>
                     </a>
                 </li>
+               
+            
             </ul>
 
             <ul class="logout">

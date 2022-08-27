@@ -24,7 +24,7 @@ $data=mysqli_fetch_row($result);
   <body>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="admin_details.php">
+    <a class="navbar-brand" href="admin_details.php" data-bs-toggle="tooltip"  title="ADMIN DETAILS">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20"style="width:30px;" fill="currentColor">
         <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
         </svg>
@@ -32,7 +32,7 @@ $data=mysqli_fetch_row($result);
 
     <h3 class="container-fluid  text-white" style="text-align: center">Hello <?php echo $data[1];?> You are now an ADMIN..</h3>
     <div class="d-flex">
-    <a class="navbar-brand" href="../login_system/backend/_logout.php">
+    <a class="navbar-brand" href="../login_system/backend/_logout.php" data-bs-toggle="tooltip" title="LOGOUT">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" style="width:30px;" stroke="currentColor" strokeWidth={2}>
             <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
         </svg>
@@ -68,10 +68,13 @@ $data=mysqli_fetch_row($result);
         include 'config.php';
         $sql="SELECT * FROM `donor_table` ;";
         $result= mysqli_query($conn,$sql);
-        if($result)
+        $res=mysqli_num_rows($result);
+        if($result && $res > 0)
         {
             while($data = mysqli_fetch_array($result))
             {
+                if($data['userrole'] == "user")
+                {
                 ?>
                     <tbody>
                         <tr>
@@ -89,14 +92,16 @@ $data=mysqli_fetch_row($result);
                             <input type="hidden" name="update" value="<?php echo $data['email'] ?>">
                             <th> <button type="submit" name="submit" class="btn btn-success ">EDIT</button> </th>
                         </form>
-                        <form action="admin_delete_user.php" method="post">
+                        <form action="admin_delete_user.php" method="post" onsubmit="return ConfirmDelete()">
                             <input type="hidden" name="delete" value="<?php echo $data['email'] ?>">
-                            <th> <button type="submit" onclick="ConfirmDelete()"name="submit" class="btn btn-danger ">DELETE</button> </th>
+                            <th> <button type="submit" name="submit" class="btn btn-danger ">DELETE</button> </th>
                             <script type="text/javascript">
                                 function ConfirmDelete()
                                 {
-                                    if (confirm("Delete Account?"))
-                                    location.href='admin_delete_user.php';
+                                    if (!confirm("Are you sure you want to delete this account?")){
+                                        return false;
+                                    }
+                                   
                                 }
                             </script> 
                         </form>
@@ -104,6 +109,8 @@ $data=mysqli_fetch_row($result);
                     </tbody>
 
                 <?php
+                }
+                
             }
         }
         else
@@ -114,6 +121,11 @@ $data=mysqli_fetch_row($result);
     </table>
 </div>    
 
-    
+<script>
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl)
+})
+</script>
   </body>
 </html>
