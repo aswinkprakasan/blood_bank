@@ -16,6 +16,10 @@ $(document).ready(function() {
     jQuery.validator.addMethod("phnumvalid", function(value, element) {
         return this.optional(element) || /^[6-9]\d{9}$/i.test(value);
       }, "Please enter a valid phonenumber");
+
+      jQuery.validator.addMethod("passwordformat", function(value, element) {
+        return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/i.test(value);
+      }, "Password should contain atleast one uppercase,one lowercase, one special character and one number (8-20 characters)");
     
    $('#form').validate({
     errorClass: "error fail-alert",
@@ -33,10 +37,12 @@ $(document).ready(function() {
         },
         password :{
             required:true,
+            passwordformat:true,
             minlength: 8
         },
         cpassword :{
             required:true,
+            passwordformat:true,
             minlength: 8
         },
         weight :{

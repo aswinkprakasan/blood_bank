@@ -1,11 +1,22 @@
-li{ 
-    border: 0;
-        border-radius: 20px;
-        padding: 10px 18px;
-        background-color: #ff0000;
-        display: inline-block;
-        margin-left: 30px;
-        color: #5d5d5d;
-        cursor: pointer;
-        text-decoration: none;
-    } 
+
+    label.error {
+        color: red;
+        font-size: 1rem;
+        display: block;
+        margin-top: 5px;
+    }
+    
+    label.error.fail-alert {
+        border-radius: 4px;
+        line-height: 1;
+        padding: 2px 0 6px 6px;
+    }
+    
+    input.valid.success-alert {
+        border: 2px solid #4CAF50;
+    }
+    
+    input.error, textarea.error {
+        font-weight: 300;
+        color: red;
+    }
