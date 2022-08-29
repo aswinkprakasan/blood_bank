@@ -35,7 +35,7 @@
         <div class= "container" >
     <!-- <div class= "jumbotron" style="margin-top:100px;margin-left:20%;margin-right:20%;margin-bottom:20px;"> -->
             <br><br>
-            <form action="search_blood.php" method="POST" id="form">
+            <form action="search_blood.php" method="POST" id="form" style="width:60%;">
                 <div class="col">
 
                     <select name="bloodgroup" class="custom-select custom-select-sm">
@@ -62,6 +62,7 @@
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
+                        <th scope="col">Age</th>
                         <th scope="col">Blood Group</th>
                         <th scope="col">Address</th>
                         <th scope="col">Phonenumber</th>

@@ -11,7 +11,7 @@ $(document).ready(function() {
 
     jQuery.validator.addMethod("lettersonly", function(value, element) {
         return this.optional(element) || /^[a-z]+$/i.test(value);
-      }, "Only letters are allowed");
+      }, "Only letters are allowed (only first name)");
 
     jQuery.validator.addMethod("phnumvalid", function(value, element) {
         return this.optional(element) || /^[6-9]\d{9}$/i.test(value);

@@ -93,7 +93,7 @@ if(!isset($_SESSION["mail"]))
                     <input type="email" name="email" value="<?php echo $data['email'] ?>" class="form-control" placeholder="Email" disabled>
                 </div><br>
                 <div class="form-group">
-                    <input type="text" name="phonenumber" value="<?php echo $data['phonenumber'] ?>" class="form-control" pattern="[6-9]\d{9}" title="enter a valid phno" placeholder="Mobile number">
+                    <input type="text" name="phonenumber" value="<?php echo $data['phonenumber'] ?>" class="form-control"  placeholder="Mobile number">
                 </div><br>
             <div class="form-group">
                 <button type="submit" name="update" class="btn btn-primary ">UPDATE</button>

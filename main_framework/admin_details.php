@@ -38,16 +38,16 @@ $data=mysqli_fetch_row($result);
 <div class="container">
     <table class="table table-bordered table-responsive center" style="margin-top:100px;margin-left:0px;">
             
-                <tr class="table-info"><th class="table-danger"scope="row">Name</th><td><?php echo$data[1]?></td></tr>
-                <tr class="table-info"><th class="table-danger"scope="row">Email</th><td><?php echo$data[0]?></td></tr>
-                <tr class="table-info"><th class="table-danger"scope="row">DOB</th><td><?php echo$data[4]?></td></tr>
-                <tr class="table-info"><th class="table-danger"scope="row">Age</th><td><?php echo$data[5]?></td></tr>
-                <tr class="table-info"><th class="table-danger"scope="row">Sex</th><td><?php echo$data[6]?></td></tr>
-                <tr class="table-info"><th class="table-danger"scope="row">Blood Group</th><td><?php echo$data[7]?></td></tr>
-                <tr class="table-info"><th class="table-danger"scope="row">Weight</th><td><?php echo$data[8]?></td></tr>
-                <tr class="table-info"><th class="table-danger"scope="row">Address</th><td><?php echo$data[9]?></td></tr>
-                <tr class="table-info"><th class="table-danger"scope="row">City</th><td><?php echo$data[10]?></td></tr>
-                <tr class="table-info"><th class="table-danger"scope="row">Phone number</th><td><?php echo$data[11]?></td></tr>
+                <tr class="table-light"><th class="table-info"scope="row">Name</th><td><?php echo$data[1]?></td></tr>
+                <tr class="table-light"><th class="table-info"scope="row">Email</th><td><?php echo$data[0]?></td></tr>
+                <tr class="table-light"><th class="table-info"scope="row">DOB</th><td><?php echo$data[4]?></td></tr>
+                <tr class="table-light"><th class="table-info"scope="row">Age</th><td><?php echo$data[5]?></td></tr>
+                <tr class="table-light"><th class="table-info"scope="row">Sex</th><td><?php echo$data[6]?></td></tr>
+                <tr class="table-light"><th class="table-info"scope="row">Blood Group</th><td><?php echo$data[7]?></td></tr>
+                <tr class="table-light"><th class="table-info"scope="row">Weight</th><td><?php echo$data[8]?></td></tr>
+                <tr class="table-light"><th class="table-info"scope="row">Address</th><td><?php echo$data[9]?></td></tr>
+                <tr class="table-light"><th class="table-info"scope="row">City</th><td><?php echo$data[10]?></td></tr>
+                <tr class="table-light"><th class="table-info"scope="row">Phone number</th><td><?php echo$data[11]?></td></tr>
 </div>
 
 

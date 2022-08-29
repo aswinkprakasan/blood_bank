@@ -86,7 +86,7 @@ if(!isset($_SESSION["mail"]))
                     <input type="email" name="email" class="form-control" placeholder="Email" required>
                 </div><br>
                 <div class="form-group">
-                    <input type="text" name="phonenumber" class="form-control" pattern="[6-9]\d{9}" title="enter a valid phno" placeholder="Mobile number" required>
+                    <input type="text" name="phonenumber" class="form-control"  placeholder="Mobile number" required>
                 </div><br>
             <div class="form-group">
                 <button type="submit" name="submit" class="btn btn-primary ">SUBMIT</button>

@@ -33,7 +33,7 @@ $(document).ready(function() {
 
         },
         password :{
-            required:"Please enter your email address",
+            required:"Please enter your password",
             minlength:"Passwords should contain atleast 8 characters"
         }
     }
