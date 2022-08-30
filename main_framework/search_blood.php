@@ -63,6 +63,7 @@
                     <tr>
                         <th scope="col">Name</th>
                         <th scope="col">Age</th>
+                        <th scope="col">Blood</th>
                         <th scope="col">Address</th>
                         <th scope="col">City</th>
                         <th scope="col">Phonenumber</th>

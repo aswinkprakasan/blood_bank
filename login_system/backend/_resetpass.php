@@ -44,7 +44,7 @@ if(isset($_POST['change']))
     else
         {
             echo '<script type="text/JavaScript">
-              if(!alert("Email and password not matching")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/resetpass.php";
+              if(!alert("Old Password not matching")) document.location = "http://'.$_SERVER['HTTP_HOST'].'/blood_bank/login_system/resetpass.php";
               </script>';
         }
 }

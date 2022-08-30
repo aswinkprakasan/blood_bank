@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     jQuery.validator.addMethod("passwordformat", function (value, element) {
         return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,20}$/i.test(value);
-    }, "Password should contain atleast one uppercase,one lowercase, one special character and one number (8-20 characters)");
+    }, "Password should contain atleast one character, one special character and one number (8-20 characters)");
 
     $('#form').validate({
         errorClass: "error fail-alert",

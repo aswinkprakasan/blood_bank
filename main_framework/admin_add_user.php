@@ -60,7 +60,7 @@ if(!isset($_SESSION["mail"]))
                         <option value="" selected>Sex</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
-                        <option value="LGBTQ">LGBTQ</option>
+                        <option value="Others">Others</option>
                     </select>
                 </div><br>
                 <div class="form-group">
