@@ -22,7 +22,7 @@ $sql="INSERT INTO `donor_table`(`username`, `password`, `dob`, `age`, `sex`, `bl
 VALUES ('$name','$pswd','$dob','0','$sex','$bloodgroup','$weight','$address','$city','$email','$phonenumber')";
 $result=mysqli_query($conn,$sql);
 
-$sql1="SELECT DATE_FORMAT(FROM_DAYS(DATEDIFF(now(),dob)), '%Y')+0 AS Age from donor_table where username='$name'";
+$sql1="SELECT DATE_FORMAT(FROM_DAYS(DATEDIFF(now(),dob)), '%Y')+0 AS Age from donor_table where email='$email'";
 $result=mysqli_query($conn,$sql1);
 
 $data=mysqli_fetch_row($result);

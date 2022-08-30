@@ -1,4 +1,4 @@
-h1{
+h1 {
     color: brown;
 }
 
@@ -34,7 +34,8 @@ input.valid.success-alert {
     border: 2px solid #4CAF50;
 }
 
-input.error, textarea.error {
+input.error,
+textarea.error {
     font-weight: 300;
     color: red;
 }

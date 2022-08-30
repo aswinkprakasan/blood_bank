@@ -41,7 +41,7 @@ if(isset($_POST['search']))
       {
         $email=$row['email'];
         $username=$row['username'];
-        $bloodgroup=$row['bloodgroup'];
+        $city=$row['city'];
         $address=$row['address'];
         $phonenumber=$row['phonenumber'];
         $age=$row['age'];
@@ -58,8 +58,8 @@ if(isset($_POST['search']))
 <tr>
     <td><?php echo $username?></td>
     <td><?php echo $age?></td>
-    <td><?php echo $bloodgroup?></td>
     <td><?php echo $address?></td>
+    <td><?php echo $city?></td>
     <td><?php echo $phonenumber?></td>
     <td><?php 
               

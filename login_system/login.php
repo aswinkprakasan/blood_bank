@@ -3,7 +3,7 @@
     <head>
         <link rel="stylesheet" href="login.css">
         <title>LOGIN</title>
-            </head>
+    </head>
 
     <body>
         <div>
@@ -18,17 +18,17 @@
 
             </a>
         </div>
-        
+
         <div class="login-page">
             <div class="form">
-            <!-- <h5 style="text-align: center; font-size:23px; font-weight: bold; color: #000000;">LOGIN</h5> -->
-            <img src="backend/drop1.gif" style="width:120px;">
+                <!-- <h5 style="text-align: center; font-size:23px; font-weight: bold; color: #000000;">LOGIN</h5> -->
+                <img src="backend/drop1.gif" style="width:120px;">
                 <form class="login-form" method="post" id="form" action="backend/_login.php">
                     <input type="email" name="email" id="email" placeholder="Email" />
                     <input type="password" name="password" placeholder="password" />
                     <button type="submit" name="submit">login</button>
                     <p class="message">Not registered? <a href="register.php">Create an account</a></p><br>
-                    <a class="messager" href="forgot.php">Forgot your password</a>
+                    <a class="messager" href="forgot.php">Forgot password</a>
                 </form>
             </div>
         </div>

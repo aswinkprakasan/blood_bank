@@ -14,7 +14,7 @@ if(isset($_POST['update']))
     $sql="UPDATE `donor_table` SET `username`='$name',`dob`='$dob',`sex`='$sex',`bloodgroup`='$bg',`weight`='$weight',`address`='$address',`city`='$city',`phonenumber`='$phnum' WHERE email='$email'";
     $result=mysqli_query($conn,$sql);  
 
-    $sql1="SELECT DATE_FORMAT(FROM_DAYS(DATEDIFF(now(),dob)), '%Y')+0 AS Age from donor_table where username='$name'";
+    $sql1="SELECT DATE_FORMAT(FROM_DAYS(DATEDIFF(now(),dob)), '%Y')+0 AS Age from donor_table where email='$email'";
     $result=mysqli_query($conn,$sql1);
 
     $data=mysqli_fetch_row($result);
